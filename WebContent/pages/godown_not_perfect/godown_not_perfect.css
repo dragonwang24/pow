@@ -1,0 +1,62 @@
+.body {
+    font-size: 1rem;
+    font-family: "Microsoft Yahei";
+    background-color: #1b1b1b;
+}
+
+.top {
+    margin-top: 3rem;
+}
+
+.center2 {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.center3 {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.gd_n_p_img24 {
+    width: 60%;
+    margin-left: 3%;
+}
+
+.font {
+    color: grey;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.font2 {
+    color: #cf5d3a;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.gd_n_p_img25 {
+    width: 1.8rem;
+    height: 3rem;
+    padding-bottom: 0.6rem;
+    margin-right: 0.5rem;
+}
+
+.font3 {
+    font-size: 2rem;
+}
+
+.perfect_info2 {
+    border: none;
+    color: #313131;;
+    border-radius: 6px;
+    width: 95%;
+    margin-top: 2rem;
+    background-color: #fec107;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 2.4rem;
+    padding-top: 0.5rem;
+}

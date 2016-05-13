@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pow.dao.AnnouncementDao">
+
+	<resultMap id="AnnouncementRetMap"	type="com.pow.vo.AnnouncementVO">
+		<id property="id" column="ANNOUNCEMENT_ID" />
+		<result property="title" column="TITLE" />
+		<result property="logoPath" column="LOGO_PATH" />
+		<result property="companyName" column="COMPANY_NAME" />
+		<result property="cooperationType" column="COOPERATION_TYPE" />
+		<result property="signUpStartTime" column="SIGNUP_START_TIME" />
+		<result property="signUpEndTime" column="SIGNUP_END_TIME" />
+		<result property="activityStartTime" column="ACTIVITY_START_TIME" />
+		<result property="activityEndTime" column="ACTIVITY_END_TIME" />
+		<result property="activityLocation" column="ACTIVITY_LOCATION" />
+		<result property="needPersonNum" column="NEED_PERSON_NUM" />
+		<result property="needPersonSex" column="NEED_PERSON_SEX" />
+		<result property="content" column="CONTENT" typeHandler="com.pow.utils.BlobStringTypeHandler"
+			jdbcType="BLOB" javaType="String" />
+		<result property="activityBackground" column="ACTIVITY_BACKGROUND" typeHandler="com.pow.utils.BlobStringTypeHandler"
+			jdbcType="BLOB" javaType="String"/>
+		<result property="top" column="TOP" />
+		<result property="hide" column="HIDE" />
+		<result property="status" column="STATUS" />
+		<result property="updateTime" column="UPDATE_TIME" />
+		<result property="createTime" column="CREATE_TIME" />
+	</resultMap>
+	
+	
+	<insert id="insertAnnouncement" parameterType="com.pow.vo.AnnouncementVO">
+		insert into POW_ANNOUNCEMENT 
+			(
+				ANNOUNCEMENT_ID, 
+				TITLE, 
+				LOGO_PATH, 
+				COMPANY_NAME, 
+				COOPERATION_TYPE, 
+				SIGNUP_START_TIME, 
+				SIGNUP_END_TIME, 
+				ACTIVITY_START_TIME, 
+				ACTIVITY_END_TIME, 
+				ACTIVITY_LOCATION, 
+				NEED_PERSON_NUM, 
+				NEED_PERSON_SEX, 
+				CONTENT, 
+				ACTIVITY_BACKGROUND,
+				TOP, 
+				HIDE, 
+				STATUS, 
+				UPDATE_TIME, 
+				CREATE_TIME
+			) 
+		values 
+			(
+				#{id,jdbcType=VARCHAR}, 
+				#{title,jdbcType=VARCHAR}, 
+				#{logoPath,jdbcType=VARCHAR},
+			 	#{companyName,jdbcType=VARCHAR}, 
+			 	#{cooperationType,jdbcType=INTEGER},
+			 	#{signUpStartTime,jdbcType=TIMESTAMP},
+			 	#{signUpEndTime,jdbcType=TIMESTAMP},
+			 	#{activityStartTime,jdbcType=TIMESTAMP},
+			 	#{activityEndTime,jdbcType=TIMESTAMP},
+			 	#{activityLocation,jdbcType=VARCHAR},
+			 	#{needPersonNum,jdbcType=INTEGER},
+			 	#{needPersonSex,jdbcType=INTEGER},
+			 	#{content,jdbcType=BLOB},
+			 	#{activityBackground,jdbcType=BLOB},
+			 	#{top,jdbcType=INTEGER},
+			 	#{hide,jdbcType=INTEGER},
+			 	#{status,jdbcType=INTEGER},
+			 	#{updateTime,jdbcType=TIMESTAMP},
+			 	#{createTime,jdbcType=TIMESTAMP}
+			)
+	</insert>
+	
+	<update id="updateAnnouncement" parameterType="com.pow.vo.AnnouncementVO">
+		update POW_ANNOUNCEMENT set 
+				TITLE = #{title,jdbcType=VARCHAR}, 
+				LOGO_PATH = #{logoPath,jdbcType=VARCHAR},
+				COMPANY_NAME = #{companyName,jdbcType=VARCHAR}, 
+				COOPERATION_TYPE = #{cooperationType,jdbcType=INTEGER},
+				SIGNUP_START_TIME = #{signUpStartTime,jdbcType=TIMESTAMP},
+				SIGNUP_END_TIME = #{signUpEndTime,jdbcType=TIMESTAMP},
+				ACTIVITY_START_TIME = #{activityStartTime,jdbcType=TIMESTAMP},
+				ACTIVITY_END_TIME = #{activityEndTime,jdbcType=TIMESTAMP},
+				ACTIVITY_LOCATION = #{activityLocation,jdbcType=VARCHAR},
+				NEED_PERSON_NUM = #{needPersonNum,jdbcType=INTEGER},
+				NEED_PERSON_SEX = #{needPersonSex,jdbcType=INTEGER},
+				CONTENT = #{content,jdbcType=BLOB},
+				ACTIVITY_BACKGROUND = #{activityBackground,jdbcType=BLOB},
+				TOP = #{top,jdbcType=INTEGER},
+				HIDE = #{hide,jdbcType=INTEGER},
+				STATUS = #{status,jdbcType=INTEGER},
+				UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+		where 
+			ANNOUNCEMENT_ID = #{id,jdbcType=VARCHAR}
+	</update>
+	
+	<delete id="deleteAnnouncement" parameterType="java.lang.String">
+		delete from POW_ANNOUNCEMENT where ANNOUNCEMENT_ID=#{id, jdbcType=VARCHAR}
+	</delete>
+
+	<select id="queryAllAnnouncements" resultMap="AnnouncementRetMap">
+		select * from POW_ANNOUNCEMENT order by ANNOUNCEMENT_ID
+	</select>
+	
+	<select id="queryOneAnnouncement" resultMap="AnnouncementRetMap" parameterType="java.lang.String">
+		select * from POW_ANNOUNCEMENT where  ANNOUNCEMENT_ID=#{id, jdbcType=VARCHAR}
+	</select>
+	
+</mapper>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="godownPerfect" style="font-size: 62.5%">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../global.css"/>
+    <link rel="stylesheet" href="godown_perfect.css"/>
+    <link rel="stylesheet" href="../share.css"/>
+    <title>报名成功</title>
+</head>
+<body class="body">
+<div ng-controller="godownPerfectCtrl">
+    <div class="center2">
+        <img ng-src="{{coser.url}}" style="width:30%">
+    </div>
+    <div class="font11">{{coser.name}}</div>
+    <div class="center3">
+        <img src="../cosplay/godown_perfect/24.png" class="width60">
+    </div>
+
+    <div class="center">
+        <button type="button" class="btn_invite" onclick="_system._guide(true)">
+            <img src="../cosplay/godown_perfect/44.png" class="gd_p_img44"/>
+            <span class="font14">邀请小伙伴为我助威</span>
+        </button>
+    </div>
+    <div class="font15">
+        已得到小伙伴助威的coser
+    </div>
+
+    <div class="container" style="width:95%">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 div_col_12">
+                <div class="col-xs-3 col-sm-3 div_col_3" ng-repeat="item in coser.card">
+                    <img ng-src="{{item.url}}" class="width60">
+                    <hr class="hr"/>
+                    <p class="p6">已有</p>
+
+                    <p><span class="font_red">{{item.count}}</span>人推荐</p>
+                </div>
+            </div>
+            <div class="center">
+                <button type="button" class="btn_watch" onclick="window.location.href='../vote/vote.html?user_id=5'">
+                    <span class="font15 font_white">查看人气排行</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="cover"></div>
+<div id="guide"><img src="../cosplay/share/指向棉花.png"></div>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';"></div>
+<script src="../assets/js/config.js"></script>
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/angular/angular.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    window.onAngularCtrlLoad = function ($http) {
+        $http.post('http://test.bigniu.cn:8122/mp/getjssdkconfig').success(function (res) {
+            console.log(res);
+            var $js_sign = res.data;
+            wx.config({
+                debug: false,
+                appId: $js_sign['appid'], // 必填，公众号的唯一标识
+                timestamp: $js_sign['timestamp'], // 必填，生成签名的时间戳，切记时间戳是整数型，别加引号
+                nonceStr: $js_sign['noncestr'], // 必填，生成签名的随机串
+                signature: $js_sign['signature'], // 必填，签名，见附录1
+                jsApiList: [
+                    'checkJsApi',
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage',
+                    'onMenuShareQQ',
+                    'onMenuShareWeibo',
+                ]
+            });
+        });
+    }
+</script>
+<script src="../assets/js/config.js"></script>
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/angular/angular.min.js"></script>
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../assets/js/big.js"></script>
+<script src="../assets/js/mp.js"></script>
+<script src="godown_perfect.js"></script>
+<script src="../share.js"></script>
+<script>
+    var params = util.decodeUrlParams();
+    var activity_id = params['activity_id'];
+    $big.post('/activity/join', {'activity_id': activity_id}, function (data) {
+    });
+</script>
+</body>
+</html>

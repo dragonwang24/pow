@@ -1,0 +1,6 @@
+*/build
+*.iml
+.classpath
+.settings/
+build/
+.DS_Store

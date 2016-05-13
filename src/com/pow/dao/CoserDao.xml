@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pow.dao.CoserDao">
+
+	<resultMap id="CoserMap" type="com.pow.vo.CoserVO">
+		<id property="cnId" column="CN_ID" />
+		<result property="cnName" column="CN_NAME" />
+		<result property="phoneNum" column="PHONE" />
+		<result property="sex" column="SEX" />
+		<result property="birthday" column="BIRTHDAY" />
+		<result property="location" column="LOCATION" />
+		<result property="weixinNumber" column="WEIXIN_NUMBER" />
+		<result property="weiboName" column="WEIBO_NAME" />
+		<result property="complete" column="COMPLETE" />
+		<result property="workImages" column="WORKS" />
+		<result property="height" column="HEIGHT" />
+		<result property="weight" column="WEIGHT" />
+		<result property="footSize" column="FOOT_SIZE" />
+		<result property="bust" column="BUST" />
+		<result property="waist" column="WAIST" />
+		<result property="hip" column="HIP" />
+		<result property="styles" column="STYLES" />
+		<result property="features" column="FEATURES" />
+		<result property="cooperation_type" column="COOPERATION_TYPE" typeHandler="com.pow.utils.BlobStringTypeHandler" jdbcType="BLOB" javaType="String"/>
+		<result property="experience" column="EXPERIENCE" />
+		<result property="description" column="DESCRIPTION" />
+		<result property="updateTime" column="UPDATE_TIME" />
+		<result property="createTime" column="CREATE_TIME" />
+		<result property="status" column="STATUS" />
+		<result property="wxOpenId" column="WX_OPENID" />
+		<result property="wxAccessToken" column="WX_ACCESS_TOKEN" />
+		<result property="wxRefreshToken" column="WX_REFRESH_TOKEN" />
+		<result property="otherStyles" column="OTHER_STYLES" />
+		<result property="otherFeatures" column="OTHER_FEATURES" />
+		
+	</resultMap>
+	
+	
+	<insert id="insertCoser" parameterType="com.pow.vo.CoserVO">
+		insert into POW_COSER 
+			(
+				CN_ID,
+				WX_ACCESS_TOKEN,
+				WX_REFRESH_TOKEN
+			)
+		values 
+			(
+				#{cnId,jdbcType=VARCHAR}, 
+			 	#{wxAccessToken,jdbcType=VARCHAR},
+			 	#{wxRefreshToken,jdbcType=VARCHAR}
+			)
+	</insert>
+	
+	<update id="updateCoserTwo" parameterType="com.pow.vo.CoserVO">
+		update POW_COSER set 
+			 	WORKS = #{workImages,jdbcType=VARCHAR},
+			 	HEIGHT = #{height,jdbcType=FLOAT},
+			 	WEIGHT = #{weight,jdbcType=FLOAT},
+			 	FOOT_SIZE = #{footSize,jdbcType=FLOAT},
+			 	BUST = #{bust,jdbcType=FLOAT},
+			 	WAIST = #{waist,jdbcType=FLOAT},
+			 	HIP = #{hip,jdbcType=FLOAT},
+			 	STYLES = #{styles,jdbcType=VARCHAR},
+			 	OTHER_STYLES = #{otherStyles,jdbcType=VARCHAR},
+			 	FEATURES = #{features,jdbcType=VARCHAR}
+			 	OTHER_FEATURES = #{otherFeatures,jdbcType=VARCHAR}
+		where 
+			CN_ID = #{cnId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateCoserThree" parameterType="com.pow.vo.CoserVO">
+		update POW_COSER set 
+			 	COOPERATION_TYPE = #{cooperation_type,jdbcType=BLOB},
+			 	EXPERIENCE=#{experience,jdbcType=VARCHAR},
+			 	DESCRIPTION=#{description,jdbcType=VARCHAR}
+		where 
+			CN_ID = #{cnId,jdbcType=VARCHAR}
+	</update>
+	
+	<update id="updateCoser" parameterType="com.pow.vo.CoserVO">
+		update POW_COSER
+		<set>
+     		<if test="cnName != null">CN_NAME = #{cnName,jdbcType=VARCHAR},</if>
+     		<if test="phoneNum != null">PHONE = #{phoneNum,jdbcType=VARCHAR},</if>
+     		<if test="sex != null">SEX = #{sex,jdbcType=INTEGER},</if>
+     		<if test="birthday != null">BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},</if>
+     		<if test="location != null">LOCATION = #{location,jdbcType=VARCHAR},</if>
+     		<if test="weixinNumber != null">WEIXIN_NUMBER = #{weixinNumber,jdbcType=VARCHAR},</if>
+     		<if test="weiboName != null">WEIBO_NAME = #{weiboName,jdbcType=VARCHAR},</if>
+     		<if test="complete != null">COMPLETE = #{complete,jdbcType=VARCHAR},</if>
+     		<if test="workImages != null">WORKS = #{workImages,jdbcType=VARCHAR},</if>
+     		<if test="height != null">HEIGHT = #{height,jdbcType=FLOAT},</if>
+     		<if test="weight != null">WEIGHT = #{weight,jdbcType=FLOAT},</if>
+     		<if test="footSize != null">FOOT_SIZE = #{footSize,jdbcType=FLOAT},</if>
+     		<if test="bust != null">BUST = #{bust,jdbcType=FLOAT},</if>
+     		<if test="waist != null">WAIST = #{waist,jdbcType=FLOAT},</if>
+     		<if test="hip != null">HIP = #{hip,jdbcType=FLOAT},</if>
+     		<if test="styles != null">STYLES = #{styles,jdbcType=VARCHAR},</if>
+     		<if test="otherStyles != null">OTHER_STYLES = #{otherStyles,jdbcType=VARCHAR},</if>
+     		<if test="features != null">FEATURES = #{features,jdbcType=VARCHAR},</if>
+     		<if test="otherFeatures != null">OTHER_FEATURES = #{otherFeatures,jdbcType=VARCHAR},</if>
+     		<if test="cooperation_type != null">COOPERATION_TYPE = #{cooperation_type,jdbcType=BLOB},</if>
+     		<if test="experience != null">EXPERIENCE = #{experience,jdbcType=VARCHAR},</if>
+     		<if test="description != null">DESCRIPTION = #{description,jdbcType=VARCHAR},</if>
+     		<if test="updateTime != null">UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},</if>
+     		<if test="status != null">STATUS = #{status,jdbcType=INTEGER},</if>
+     		<if test="wxOpenId != null">WX_OPENID = #{wxOpenId,jdbcType=VARCHAR},</if>
+     		<if test="wxAccessToken != null">WX_ACCESS_TOKEN = #{wxAccessToken,jdbcType=VARCHAR},</if>
+     		<if test="wxRefreshToken != null">WX_REFRESH_TOKEN = #{wxRefreshToken,jdbcType=VARCHAR}</if>
+     	</set>
+		where 
+			CN_ID = #{cnId,jdbcType=VARCHAR}
+	</update>
+	
+	<delete id="deleteCoser" parameterType="java.lang.String">
+		delete from POW_COSER where CN_ID=#{cnId, jdbcType=VARCHAR}
+	</delete>
+
+	<select id="queryAllCosers" resultMap="CoserMap">
+		select * from POW_COSER
+	</select>
+	
+	<select id="queryOneCoser" resultMap="CoserMap" parameterType="java.lang.String">
+		select * from POW_COSER where CN_ID=#{cnId, jdbcType=VARCHAR}
+	</select>
+	
+</mapper>

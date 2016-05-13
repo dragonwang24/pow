@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pow.dao.SignUpDao">
+
+	<resultMap id="SignUpMap"	type="com.pow.vo.SignUpVO">
+		<id property="id" column="ID" />
+		<result property="announcementId" column="ANNOUNCEMENT_ID" />
+		<result property="coserId" column="COSER_ID" />
+		<result property="signUpTime" column="SIGNUP_TIME" />
+	</resultMap>
+	
+	
+	<insert id="insertSignUp" parameterType="com.pow.vo.SignUpVO">
+		insert into POW_SIGNUP
+			(
+				ID, 
+				ANNOUNCEMENT_ID, 
+				COSER_ID, 
+				SIGNUP_TIME
+			) 
+		values 
+			(
+				#{id,jdbcType=VARCHAR}, 
+				#{announcementId,jdbcType=VARCHAR}, 
+				#{coserId,jdbcType=VARCHAR},
+			 	#{signUpTime,jdbcType=TIMESTAMP}
+			)
+	</insert>
+	
+	<delete id="deleteSignUp" parameterType="com.pow.vo.SignUpVO">
+		delete from POW_SIGNUP where ANNOUNCEMENT_ID=#{announcementId, jdbcType=VARCHAR} AND COSER_ID=#{coserId, jdbcType=VARCHAR}
+	</delete>
+	
+	<delete id="deleteSignUpsByAnnouncementId" parameterType="java.lang.String">
+		delete from POW_SIGNUP where ANNOUNCEMENT_ID=#{announcementId, jdbcType=VARCHAR}
+	</delete>
+	
+	<delete id="deleteSignUpsByCoserId" parameterType="java.lang.String">
+		delete from POW_SIGNUP where COSER_ID=#{coserId, jdbcType=VARCHAR}
+	</delete>
+
+	<select id="querySignUpsByAnnouncementId" resultMap="SignUpMap" parameterType="java.lang.String">
+		select * from POW_SIGNUP where ANNOUNCEMENT_ID=#{announcementId, jdbcType=VARCHAR}
+	</select>
+	
+	<select id="querySignUpsByCoserId" resultMap="SignUpMap" parameterType="java.lang.String">
+		select * from POW_SIGNUP where COSER_ID=#{coserId, jdbcType=VARCHAR}
+	</select>
+	
+	<select id="querySignUp" resultMap="SignUpMap" parameterType="com.pow.vo.SignUpVO">
+		select * from POW_SIGNUP where ANNOUNCEMENT_ID= #{announcementId,jdbcType=VARCHAR} AND COSER_ID= #{coserId,jdbcType=VARCHAR}
+	</select>
+	
+</mapper>

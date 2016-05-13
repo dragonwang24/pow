@@ -1,0 +1,79 @@
+.body{
+    font-size: 1rem;
+    background-color: #1b1b1b;
+}
+
+.center2 {
+     text-align: center;
+     margin-top: 3rem;
+ }
+
+.center3{
+    text-align: center;
+    margin-top:0.5rem;
+    margin-left:4%;
+}
+.btn_invite {
+    border: none;
+    background-color: #fec107;
+    color: #313131;;
+    border-radius: 8px;
+    width: 95%;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 3.2rem;
+    padding-top: 0.5rem;
+}
+
+.btn_watch{
+    border: none;
+    background-color: #00b3ee;
+    color: #313131;;
+    border-radius:6px;
+    width: 50%;
+    font-size: 1.2rem;
+    font-weight:bold;
+    line-height: 2.8rem;
+    margin-bottom:4rem;
+    margin-top:-4rem;
+}
+.gd_p_img44 {
+    width: 2.4rem;
+    height: 2.8rem;
+    margin-top: 0.6rem;
+    margin-right: 1rem;
+}
+
+.font14 {
+    font-family: "ºÚÌå";
+    font-size: 1.6rem;
+}
+
+.font15 {
+    margin-top: 2rem;
+    text-align: center;
+    color: grey;
+    font-size: 1.4rem;
+    margin-bottom: -1.5rem;
+}
+
+.div_col_12 {
+    background-color: #eee;
+    border-radius: 1em;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.div_col_3 {
+    background-color: #eee;
+    text-align: center;
+    border-radius: 1rem;
+}
+.hr{
+    border-top:1px solid #959595;margin-top:1rem;width:50%
+}
+.p6{
+    margin-top:-1rem;
+}

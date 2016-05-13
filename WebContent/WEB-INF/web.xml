@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>pow</display-name>
+  
+  <context-param>
+	    <param-name>contextConfigLocation</param-name>
+	    <param-value>
+				classpath:config/applicationContext.xml,
+				classpath:config/datasource.xml
+		</param-value>
+	</context-param>	
+	<listener>
+	    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+
+	<context-param>
+	  <param-name>resteasy.resources</param-name>
+	  <param-value>
+	  		 com.pow.controller.ProductController,
+	  		 com.pow.controller.AnnouncementController,
+	  		 com.pow.controller.CoserController,
+	  		 com.pow.controller.WeiXinController
+	  </param-value>
+	</context-param>
+	
+	<context-param>
+	  <param-name>resteasy.injector.factory</param-name>
+	  <param-value>com.primeton.components.rest.extend.JSONInjectorFactoryImpl</param-value>
+	</context-param>
+	<context-param>
+	<param-name>resteasy.servlet.mapping.prefix</param-name>
+	<param-value>/rest</param-value>
+	</context-param>
+	
+	<servlet>
+		<servlet-name>rest</servlet-name>
+		<servlet-class>
+			org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>rest</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+  
+</web-app>

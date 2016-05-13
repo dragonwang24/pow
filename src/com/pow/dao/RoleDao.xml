@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pow.dao.RoleDao">
+
+	<resultMap id="RoleMap"	type="com.pow.vo.RoleVO">
+		<id property="id" column="ROLE_ID" />
+		<result property="name" column="ROLE_NAME" />
+		<result property="career" column="CAREER" />
+		<result property="description" column="DESCRIPTION" />
+		<result property="imagePath" column="IMAGE_PATH" />
+		<result property="announcementId" column="ANNOUNCEMENT_ID" />
+	</resultMap>
+	
+	
+	<insert id="insertRole" parameterType="com.pow.vo.RoleVO">
+		insert into POW_ROLE
+			(
+				ROLE_ID, 
+				ROLE_NAME, 
+				CAREER, 
+				DESCRIPTION, 
+				IMAGE_PATH, 
+				ANNOUNCEMENT_ID
+			) 
+		values 
+			(
+				#{id,jdbcType=VARCHAR}, 
+				#{name,jdbcType=VARCHAR}, 
+				#{career,jdbcType=VARCHAR},
+			 	#{description,jdbcType=VARCHAR}, 
+			 	#{imagePath,jdbcType=VARCHAR},
+			 	#{announcementId,jdbcType=VARCHAR}
+			)
+	</insert>
+	
+	<update id="updateRole" parameterType="com.pow.vo.RoleVO">
+		update POW_ROLE set 
+				ROLE_NAME = #{name,jdbcType=VARCHAR},
+				CAREER = #{career,jdbcType=VARCHAR},
+				DESCRIPTION = #{description,jdbcType=VARCHAR}, 
+				IMAGE_PATH = #{imagePath,jdbcType=VARCHAR}, 
+				ANNOUNCEMENT_ID = #{announcementId,jdbcType=VARCHAR}
+		where 
+			ROLE_ID = #{id,jdbcType=VARCHAR}
+	</update>
+	
+	<delete id="deleteRolesByAnnouncementId" parameterType="java.lang.String">
+		delete from POW_ROLE where ANNOUNCEMENT_ID=#{announcementId, jdbcType=VARCHAR}
+	</delete>
+
+	<select id="queryRolesByAnnouncementId" resultMap="RoleMap" parameterType="java.lang.String">
+		select * from POW_ROLE where ANNOUNCEMENT_ID=#{announcementId, jdbcType=VARCHAR}
+	</select>
+	
+</mapper>

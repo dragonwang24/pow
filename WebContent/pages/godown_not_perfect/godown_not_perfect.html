@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 62.5%" ng-app="godownNotPerfect">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../global.css"/>
+    <link rel="stylesheet" href="godown_not_perfect.css"/>
+    <title>入库未完善</title>
+</head>
+<body class="body" ng-controller="godownNotPerfectCtrl">
+<div class="top">
+    <div class="center">
+        <img ng-src="{{coser.head_url}}" style="width:30%">
+    </div>
+    <div class="font11">{{coser.name}}</div>
+    <div class="center2">
+        <img src="../cosplay/godown_perfect/24.png" class="gd_n_p_img24">
+    </div>
+    <div class="font">
+        恭喜你，报名信息已成功提交
+    </div>
+    <div class="font2">信息越完善，就会有更多人注意到你呦</div>
+    <div class="center3">
+        <a href="../perfect_info1/perfect_info1.html">
+            <button type="submit" class="perfect_info2">
+                <img src="../cosplay/godown_not_perfect/25.png" class="gd_n_p_img25"/>
+                <span class="font3">完善信息</span>
+            </button>
+        </a>
+    </div>
+</div>
+<script src="../assets/js/config.js"></script>
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/angular/angular.min.js"></script>
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../assets/js/big.js"></script>
+<script src="godown_not_perfect.js"></script>
+</body>
+</html>

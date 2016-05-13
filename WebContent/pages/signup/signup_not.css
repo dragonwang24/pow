@@ -1,0 +1,26 @@
+.body{
+    font-size:1rem;
+    background-color:#1b1b1b;
+}
+.font{
+    font-size: 1.2rem;
+    color: #ffc107;
+}
+.top{
+    margin-top: 4rem;
+}
+.top2{
+    margin-top: 1rem;
+}
+
+.join{
+    height:2.8rem;
+    line-height: 2.8rem;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #ffc107;
+    border-radius:6px;
+    border:none;
+    margin-top:1rem;
+    font-weight:700;
+}

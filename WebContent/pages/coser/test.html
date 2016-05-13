@@ -1,0 +1,251 @@
+<!DOCTYPE html>  
+<html>  
+    <head>  
+        <title>Bootstrap Form Template</title>  
+        <meta charset="utf-8" />  
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+        <link rel="stylesheet" type="text/css" href="/pow/resources/bootstrap-3.3.5/css/bootstrap.min.css"/>  
+    </head>  
+    <body style="margin:auto;padding-top:10px;background: #F2F2F2">
+	<form role="form" id="coserForm" class="col-xs-12 col-sm-12 col-md-12" style="padding-right:10px;padding-left:10px;">
+		<div style="background:#ffffff;padding:30px 10px;border-top-right-radius:5px;border-top-left-radius:5px;">
+			<div class="row">
+				<div class="col-xs-2 col-sm-2 col-md-2" style="max-width:50px;">
+					<img src="<%=contextPath%>/pages/images/perfect_info1/57.png" style="width:30px;">
+				</div>
+				<div class="col-xs-10 col-sm-10 col-md-10">
+					<input type="text" class="form-control" id="cnName" name="cnName" placeholder="CN">
+				</div>
+			</div>
+			<div class="row" style="padding-top:15px;">
+				<div class="col-xs-2 col-sm-2 col-md-2" style="max-width:50px;text-align:right;">
+					<img src="<%=contextPath%>/pages/images/perfect_info1/58.png" style="width:30px;">
+				</div>
+				<div class="col-xs-10 col-sm-10 col-md-10">
+					<div class="btn-group col-xs-12 col-sm-12 col-md-12" data-toggle="buttons" style="padding:0px;">
+					   <label class="btn btn-default col-xs-6 col-sm-6 col-md-6">
+					      <input type="radio" name="sex" id="male" value="0"> 男
+					   </label>
+					   <label class="btn btn-default col-xs-6 col-sm-6 col-md-6">
+					      <input type="radio" name="sex" id="female" value="1"> 女
+					   </label>
+					</div>	
+				</div>
+			</div>
+			<div class="row form-group" style="padding-top:15px;">
+				<div class="col-xs-2 col-sm-2 col-md-2" style="max-width:50px;">
+					<img src="<%=contextPath%>/pages/images/perfect_info1/59.png" style="width:30px;">
+				</div>
+				<div class="col-xs-10 col-sm-10 col-md-10">
+					<input type="text" class="form-control" id="birthday" name="birthday" placeholder="请填写生日yyyy-MM-dd">
+				</div>
+			</div>
+			<div class="row" style="padding-top:15px;">
+				<div class="col-xs-2 col-sm-2 col-md-2" style="max-width:50px;">
+					<img src="<%=contextPath%>/pages/images/perfect_info1/60.png" style="width:30px;">
+				</div>
+				<div class="col-xs-10 col-sm-10 col-md-10">
+					<input type="text" class="form-control" id="location" name="location" placeholder="请填写所在地">
+				</div>
+			</div>
+			<div class="row" style="padding-top:15px;">
+				<div class="col-xs-2 col-sm-2 col-md-2" style="max-width:50px;">
+					<img src="<%=contextPath%>/pages/images/perfect_info1/61.png" style="width:30px;">
+				</div>
+				<div class="col-xs-10 col-sm-10 col-md-10">
+					<input type="text" class="form-control" id="weiboName" name="weiboName" placeholder="微博昵称（选填）">
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 page2" style="background:#ffffff;height:100%;padding:0 5px;">
+		<p class="col-xs-12 col-sm-12 col-md-12 leftTitle" >个人作品<span class="rightTitle">(限5-9张)</span></p>
+		<div class="col-xs-12 col-sm-12 col-md-12" style="padding:10px 0px">
+			<input id="works" type="file" name="uploadedFile" multiple="true" class="file-loading">
+	    </div>
+	    <p class="col-xs-12 col-sm-12 col-md-12 leftTitle" >coser资料<span class="rightTitle">(选填，仅合作方可见)</span></p>
+		<div class="col-xs-12 col-sm-12 col-md-12" style="padding:10px 0px">
+			<div class="col-xs-4 col-sm-4 col-md-4" style="text-align:center">
+				<label class="col-xs-4 col-sm-4 col-md-4 left_label">身高:</label>
+				<div class="col-xs-5 col-sm-5 col-md-5 ">
+					<input class="form-control"  style="padding:0px" type="text" name="height" />
+				</div>
+				<label class="col-xs-3 col-sm-3 col-md-3 right_label">cm</label>
+			</div>
+			<div class="col-xs-4 col-sm-4 col-md-4" style="text-align:center">
+				<label class="col-xs-4 col-sm-4 col-md-4 left_label" >体重:</label>
+				<div class="col-xs-5 col-sm-5 col-md-5 ">
+					<input class="form-control"  style="padding:0px" type="text" name="weight" />
+				</div>
+				<label class="col-xs-3 col-sm-3 col-md-3 right_label" >kg</label>
+			</div>
+			<div class="col-xs-4 col-sm-4 col-md-4" style="text-align:center">
+				<label class="col-xs-4 col-sm-4 col-md-4 left_label" >鞋码:</label>
+				<div class="col-xs-5 col-sm-5 col-md-5 ">
+					<input class="form-control"  style="padding:0px" type="text" name="footSize" />
+				</div>
+				<label class="col-xs-3 col-sm-3 col-md-3 right_label" >码</label>
+			</div>
+	    </div>
+		<div class="col-xs-12 col-sm-12 col-md-12" style="padding:10px 0px">
+			<div class="col-xs-4 col-sm-4 col-md-4" style="text-align:center">
+				<label class="col-xs-4 col-sm-4 col-md-4 left_label" >胸围:</label>
+				<div class="col-xs-5 col-sm-5 col-md-5 ">
+					<input class="form-control"  style="padding:0px" type="text" name="bust" />
+				</div>
+				<label class="col-xs-3 col-sm-3 col-md-3 right_label">cm</label>
+			</div>
+			<div class="col-xs-4 col-sm-4 col-md-4" style="text-align:center">
+				<label class="col-xs-4 col-sm-4 col-md-4 left_label" >腰围:</label>
+				<div class="col-xs-5 col-sm-5 col-md-5  ">
+					<input class="form-control"  style="padding:0px" type="text" name="waist" />
+				</div>
+				<label class="col-xs-3 col-sm-3 col-md-3 right_label" >cm</label>
+			</div>
+			<div class="col-xs-4 col-sm-4 col-md-4" style="text-align:center">
+				<label class="col-xs-4 col-sm-4 col-md-4 left_label">臀围:</label>
+				<div class="col-xs-5 col-sm-5 col-md-5 ">
+					<input class="form-control"  style="padding:0px" type="text" name="hip" />
+				</div>
+				<label class="col-xs-3 col-sm-3 col-md-3 right_label" >cm</label>
+			</div>
+	    </div>
+	    <p class="col-xs-12 col-sm-12 col-md-12 leftTitle" style="padding-top:10px;">个人风格<span class="rightTitle">(可多选)</span></p>
+		<div class="col-xs-12 col-sm-12 col-md-12" style="padding:10px 0px">
+			<div class="btn-group checkbox" data-toggle="buttons" style="padding:0 15px;">
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
+			      <input type="checkbox" name="styles" value="萝莉"> 萝莉
+			   </label>
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
+			      <input type="checkbox" name="styles" value="正太"> 正太
+			   </label>
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
+			      <input type="checkbox" name="styles" value="大叔"> 大叔
+			   </label>
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
+			      <input type="checkbox" name="styles" value="御姐"> 御姐
+			   </label>
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
+			      <input type="checkbox" name="styles" value="古风"> 古风
+			   </label>
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
+			      <input type="checkbox" name="styles" value="日系"> 日系
+			   </label>
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
+			      <input type="checkbox" name="styles" value="欧系"> 欧系
+			   </label>
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
+			      <input type="checkbox" name="styles" value="其他"> 其他
+			   </label>
+			</div>
+	    </div>
+	    <p class="col-xs-12 col-sm-12 col-md-12 leftTitle" style="padding-top:10px;">个人特长<span class="rightTitle">(可多选)</span></p>
+		<div class="col-xs-12 col-sm-12 col-md-12" style="padding:10px 0px">
+			<div class="btn-group checkbox" data-toggle="buttons" style="padding:0 15px;">
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
+			      <input type="checkbox" name="features" value="化妆"> 化妆
+			   </label>
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
+			      <input type="checkbox" name="features" value="后期"> 后期
+			   </label>
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
+			      <input type="checkbox" name="features" value="服装"> 服装
+			   </label>
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
+			      <input type="checkbox" name="features" value="道具"> 道具
+			   </label>
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
+			      <input type="checkbox" name="features" value="绘画"> 绘画
+			   </label>
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
+			      <input type="checkbox" name="features" value="跳舞"> 跳舞
+			   </label>
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
+			      <input type="checkbox" name="features" value="摄影"> 摄影
+			   </label>
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
+			      <input type="checkbox" name="features" value="表演"> 表演
+			   </label>
+			</div>
+	    </div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-12 page3" style="background:#ffffff;height:100%;padding:2px 5px 20px 5px;border-bottom-right-radius:5px;border-bottom-left-radius:5px;">
+		<div class="col-xs-12 col-sm-12 col-md-12" id="mainDiv" style="padding:0;">
+			<p class="col-xs-12 col-sm-12 col-md-12 leftTitle" >合作类型<span class="rightTitle">(可多选)</span></p>
+			<div class="col-xs-12 col-sm-12 col-md-12" name="cooperationTypeRows" style="margin:0;padding:10px 0;">
+				<div class="col-xs-6 col-sm-6 col-md-6" style="padding:0 0px">
+					<select id="cooperationType" class="form-control">
+						<option value="0">微博转发(每条)</option>
+						<option value="1">微博直发(每条)</option>
+						<option value="2">线下活动(每天)</option>
+						<option value="3">平面拍摄(每张)</option>
+						<option value="4">视频拍摄(每天)</option>
+						<option value="5">活动主持(每场)</option>
+					</select>
+			     </div>
+			     <div class="col-xs-4 col-sm-4 col-md-4" style="padding:0">
+			     	<input type="text" class="form-control pull-left" style="width:80px;" id="money" placeholder="填写"><label class="right_label">元</label>
+			     </div>
+			     <div class="col-xs-2 col-sm-2 col-md-2" style="padding:0;margin-top:4px;">
+			     	<a href="#" onclick="addRow()" style="color: #fece07;text-decoration: blink;">添加+</a>
+			     </div>
+		     </div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12" style="padding:0;padding-top:30px;">
+			<p class="col-xs-12 col-sm-12 col-md-12 leftTitle" >coser经历</p>
+			<div class="col-xs-12 col-sm-12 col-md-12" style="padding:10px 0px">
+				<textarea class="form-control" id="experience" name="experience" rows="5" placeholder="请填写cos经历，限1000字以内" maxlength="1000"></textarea>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12" style="padding:0;padding-top:30px;">
+			<p class="col-xs-12 col-sm-12 col-md-12 leftTitle" >个人介绍</p>
+			<div class="col-xs-12 col-sm-12 col-md-12" style="padding:10px 0px">
+				<textarea class="form-control" id="description" name="description" rows="5" placeholder="请填写个人介绍，限1000字以内" maxlength="1000"></textarea>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12" style="padding-top:50px;text-align:center">
+			<a type="button" class="btn btn_warning col-xs-12 col-sm-12 col-md-12" onclick="submit()" style="padding: 5px 30px; background: #fece07;color: black;font-size: 18px; font-weight: bold;">提交</a>
+		</div>
+	</div>
+	<div id="template" style="display:none">
+		<div class="row" name="cooperationTypeRows" style="margin:0;padding:0;padding-top:10px;">
+		     <div class="col-xs-6 col-sm-6 col-md-6" style="padding:0px">
+				<select id="cooperationType"  class="form-control">
+					<option value="0">微博转发(每条)</option>
+					<option value="1">微博直发(每条)</option>
+					<option value="2">线下活动(每天)</option>
+					<option value="3">平面拍摄(每张)</option>
+					<option value="4">视频拍摄(每天)</option>
+					<option value="5">活动主持(每场)</option>
+				</select>
+		     </div>
+		     <div class="col-xs-4 col-sm-4 col-md-4" style="padding:0">
+		     	<input type="text" class="form-control pull-left" style="width:80px;" id="money" placeholder="填写"><label class="right_label">元</label>
+		     </div>
+		     <div class="col-xs-2 col-sm-2 col-md-2" style="padding:0;margin-top:4px;">
+		     	<a onclick="removeThisRow(this)" style="color:gray">删除</a>
+		     </div>
+	     </div>
+	</div>
+	</form>
+	
+					<input type="button" onclick="test()" value="test"/>
+</body>
+        <!-- <script src="plugins/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>  
+        <script src="plugins/bootstrap/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>  
+        <script src="plugins/jquery-validation/dist/jquery.validate.js" type="text/javascript" charset="utf-8"></script>   -->
+        <script src="/pow/resources/jquery/jquery.min-1.11.1.js"></script>
+		<script src="/pow/resources/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+		<script src="/pow/resources/jquery-validation/js/jquery.validate.js"></script>
+  
+        <script src="validate.js" type="text/javascript" charset="utf-8"></script>  
+        <script type="text/javascript" charset="utf-8">  
+            //MyValidator.init();  
+            
+            function test(){
+            	debugger;
+            	 if ($('#coserForm').validate().form()) {  
+            		 alert("success");
+                 }  
+            }
+        </script>  
+</html>  
