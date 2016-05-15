@@ -152,17 +152,14 @@
 			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" onclick="onOtherStyleClick(this)" style="width:20%;">
 			      <input type="checkbox" name="styles" value="其他" > 其他
 			   </label>
-			   <input id="styles_other" class="btn btn-default col-xs-2 col-sm-2 col-md-2"  style="width:35%;border-color:#eee;display:none;margin-left:5px;" value="AAA"/>
+			   <input id="styles_other" class="btn btn-default col-xs-2 col-sm-2 col-md-2"  style="width:35%;border-color:#eee;display:none;margin-left:5px;" />
 			</div>
 	    </div>
 	    <p class="col-xs-12 col-sm-12 col-md-12 leftTitle" style="padding-top:10px;">个人特长<span class="rightTitle">(可多选)</span></p>
 		<div class="col-xs-12 col-sm-12 col-md-12" style="padding:10px 0px">
 			<div class="btn-group checkbox" data-toggle="buttons" style="padding:0 15px;">
 			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
-			      <input type="checkbox" name="features" value="化妆"> 化妆
-			   </label>
-			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
-			      <input type="checkbox" name="features" value="后期"> 后期
+			      <input type="checkbox" name="features" value="COS"> COS
 			   </label>
 			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
 			      <input type="checkbox" name="features" value="服装"> 服装
@@ -171,17 +168,33 @@
 			      <input type="checkbox" name="features" value="道具"> 道具
 			   </label>
 			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
+			      <input type="checkbox" name="features" value="化妆"> 化妆
+			   </label>
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
+			      <input type="checkbox" name="features" value="摄影"> 摄影
+			   </label>
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
+			      <input type="checkbox" name="features" value="后期"> 后期
+			   </label>
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
 			      <input type="checkbox" name="features" value="绘画"> 绘画
 			   </label>
 			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
 			      <input type="checkbox" name="features" value="跳舞"> 跳舞
 			   </label>
 			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
-			      <input type="checkbox" name="features" value="摄影"> 摄影
+			      <input type="checkbox" name="features" value="唱歌"> 唱歌
+			   </label>
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
+			      <input type="checkbox" name="features" value="配音"> 配音
 			   </label>
 			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" style="width:20%;">
 			      <input type="checkbox" name="features" value="表演" > 表演
 			   </label>
+			   <label class="btn btn-default col-xs-2 col-sm-2 col-md-2" onclick="onOtherFeaturesClick(this)" style="width:20%;">
+			      <input type="checkbox" name="features" value="其他" > 其他
+			   </label>
+			   <input id="features_other" class="btn btn-default col-xs-2 col-sm-2 col-md-2"  style="width:35%;border-color:#eee;display:none;margin-left:5px;" />
 			</div>
 			<div class="col-xs-12 col-sm-12 col-md-12" style="padding-top:50px;text-align:center">
 				<a type="button" class="btn btn_warning col-xs-12 col-sm-12 col-md-12" onclick="doNext()" style="padding: 5px 30px; background:#fece07;color: #ffffff;font-size: 18px; font-weight: bold;">下一步</a>
@@ -194,12 +207,20 @@ var coserId = '<%=request.getParameter("id")%>';
 var workImages = [];
 
 var styles_other = $("#styles_other");
+var features_other = $("#features_other");
 
 function onOtherStyleClick(dom){
 	if(dom.className.indexOf("active") > 0){
 		styles_other.hide();
 	}else{
 		styles_other.show();
+	}
+}
+function onOtherFeaturesClick(dom){
+	if(dom.className.indexOf("active") > 0){
+		features_other.hide();
+	}else{
+		features_other.show();
 	}
 }
 $(function(){
@@ -217,23 +238,42 @@ $(function(){
 			}
 			formHelper.setData(coser);
 			var features = coser.features;
+			var hasOtherFeatures = false;
 			if(features){
 				features = features.split(",")
 				for(var i = 0;i < features.length; i++){
 					if(features[i]){
 						$("input[name='features'][value="+features[i]+"]").parent().addClass("active"); 
+						if(features[i] == '其他'){
+							hasOtherFeatures = true;
+						}
 					}
 				}
 			}
+			if(hasOtherFeatures){
+				features_other.show();
+				features_other.val(coser.otherFeatures);
+			}
+			
 			var styles = coser.styles;
+			var hasOtherStyles = false;
 			if(styles){
 				styles = styles.split(",")
 				for(var i = 0;i < styles.length; i++){
 					if(styles[i]){
 						$("input[name='styles'][value="+styles[i]+"]").parent().addClass("active"); 
+						if(styles[i] == '其他'){
+							hasOtherStyles = true;
+						}
 					}
 				}
 			}
+			if(hasOtherStyles){
+				styles_other.show();
+				styles_other.val(coser.otherStyles);
+			}
+			
+			
 			var initialPreviewConfig = [];
 			var initialPreview = [];
 			workImages = coser.workImages;
@@ -330,11 +370,12 @@ function doNext(){
 
 function doSaveForm(imagePaths){
 	var styles=[];
+	var otherStyles ;
 	$("[name=styles]").each(function(index,element){
 		if($(this).parent().hasClass("active")){
 			styles.push($(this).val());
-			if($(this).val()=='其它'){
-				data.otherStyles=styles_other.val();
+			if($(this).val()=='其他'){
+				otherStyles=styles_other.val();
 			}
 		}
 	});
@@ -344,9 +385,13 @@ function doSaveForm(imagePaths){
 	}
 	
 	var features = [];
+	var otherFeatures;
 	$("[name=features]").each(function(index,element){
 		if($(this).parent().hasClass("active")){
 			features.push($(this).val());
+			if($(this).val()=='其他'){
+				otherFeatures=features_other.val();
+			}
 		}
 	});
 	if(features.length == 0){
@@ -358,6 +403,8 @@ function doSaveForm(imagePaths){
 	var data = formHelper.getData();
 	data.features = features.join(",");
 	data.styles = styles.join(",");
+	data.otherStyles = otherStyles;
+	data.otherFeatures = otherFeatures;
 	if(workImages && imagePaths){
 		workImages.push(imagePaths);
 	}
@@ -370,7 +417,7 @@ function doSaveForm(imagePaths){
 		url:contextPath+'/rest/cosers/update',
 		type:'POST',
 		contentType:'application/json',
-		data:JSON.stringify({coser:commitData}),
+		data:JSON.stringify({coser:data}),
 		success:function(ret){
 			window.location.href=contextPath+"/pages/coser/coser_join_step4.jsp?id="+coserId;
 		},

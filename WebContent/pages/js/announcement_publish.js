@@ -20,9 +20,7 @@ var roleNum = 1;
 	            "firstDay": 1
 	        },
 	        "linkedCalendars": false,
-	        "autoUpdateInput": true,
-	        "startDate": "01/04/2016",
-	        "endDate": "01/10/2016"
+	        "autoUpdateInput": true
 	}
 	
 	var roleFormTemplate = $("#roleDiv").html();	

@@ -65,7 +65,7 @@
 	<div class="col-xs-12 col-sm-12 col-md-12" style="background:#ffffff;height:100%;padding:2px 5px 20px 5px;border-radius:5px">
 		<div class="col-xs-12 col-sm-12 col-md-12" id="mainDiv" style="padding:0;">
 			<p class="col-xs-12 col-sm-12 col-md-12 leftTitle" >合作类型<span class="rightTitle">(可多选)</span></p>
-			<div class="col-xs-12 col-sm-12 col-md-12" name="cooperationTypeRows" style="margin:0;padding:10px 0;">
+			<div class="col-xs-12 col-sm-12 col-md-12" name="cooperationTypeRows" style="margin:0;padding:10px 0 0 0;">
 				<div class="col-xs-6 col-sm-6 col-md-6" style="padding:0 0px">
 					<select id="cooperationType" class="form-control">
 						<option value="0">微博转发(每条)</option>
@@ -101,7 +101,7 @@
 		</div>
 	</div>
 	<div id="template" style="display:none">
-		<div class="form-group" name="cooperationTypeRows" style="margin:0;padding:0;padding-top:10px;">
+		<div class="col-xs-12 col-sm-12 col-md-12" name="cooperationTypeRows" style="margin:0;padding:0;padding-top:10px;">
 		     <div class="col-xs-6 col-sm-6 col-md-6" style="padding:0px">
 				<select id="cooperationType"  class="form-control">
 					<option value="0">微博转发(每条)</option>
@@ -183,17 +183,30 @@
 		var cooperationTypes = [];
 		var cooperationTypeRows = $("#mainDiv").find("[name=cooperationTypeRows]");
 		var hasNullMoney =false;
+		var selectedTypes = {};
+		var hasSampleTypes = false;
 		cooperationTypeRows.each(function(index,element){
 			var money = $(this).find("#money").val();
 			if(!money || money == ""){
 				hasNullMoney = true;
 			}
+			var cooperationType = $(this).find("#cooperationType").val();
+			if(selectedTypes[cooperationType]){
+				hasSampleTypes = true;
+				
+			}else{
+				selectedTypes[cooperationType] = cooperationType;
+			}
 			var type = {
-					cooperationType:$(this).find("#cooperationType").val(),
+					cooperationType:cooperationType,
 					money:money
 			};
 			cooperationTypes.push(type);
 		});
+		if(hasSampleTypes){
+			alert("不能重复选择合作类型");
+			return;
+		}
 		if(hasNullMoney){
 			alert("合作类型金额不能为空！");
 			return;
